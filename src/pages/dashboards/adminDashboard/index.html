@@ -13,16 +13,53 @@
                 <div class="logo">o</div>
                 <h1 class="title">kenzie Empresas</h1>
             </div>
-            <div class="buttons-home">
-                <a href="../login/index.html">
-                    <button class="btn-login">Login</button>
-                </a>
-                <a href="../register/index.html">
-                    <button class="btn-register">Cadastro</button>
-                </a>
-            </div>
+            <button class="btn-logout">Logout</button>
         </div>
     </header>
+    <main>
+        <div class="main-conteiner">
+            <section class="admin-area">
+                <div class="admin-departments">
+                    <div class="admin-department-manage">
+                        <h2 class="admin-department-name">Departamentos</h2>
+                        <select name="company-select" id="">
+                            <option value="">Selecionar Empresa</option>
+                            <option value="id_empresa">Empresa</option>
+                        </select>
+                        <button class="btn-create-department"> + Criar</button>
+                    </div>
+                    <ul class="departments">
+                        <li class="department">
+                            <h3 class="department-name">Department Name</h3>
+                            <p class="department-description">Department Description</p>
+                            <p class="company-name">Company Name</p>
+                            <div class="department-manage-buttons">
+                                <button class="eye">olho</button>
+                                <button class="pencil">lápis</button>
+                                <button class="trash">lixo</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="admin-users">
+                    <div class="admin-users-manage">
+                        <h2 class="admin-users-name">Usuários cadastrados</h2>
+                    </div>
+                    <ul class="users">
+                        <li class="user">
+                            <h3 class="user-name">Department Name</h3>
+                            <p class="user-level">Department Description</p>
+                            <p class="company-name">Company Name</p>
+                            <div class="department-manage-buttons">
+                                <button class="pencil">lápis</button>
+                                <button class="trash">lixo</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
 
     
 </body>

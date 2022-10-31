@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenzie Empresas</title>
+    <title>Kenzie Empresas - Home</title>
 </head>
 <body>
     <header>
@@ -43,6 +43,89 @@
             </div>
         </div>
     </main>
+    <div class="modal-background_small">
+        <div class="modal-container_small"></div>
+    </div>
+    <div class="modal-background">
+        <div class="modal-container"></div>
+    </div>
+    <div class="modal_profile_edit">
+        <h2 class="modal_profile_edit_title">Editar Perfil</h2>
+        <form class="modal_profile_edit_form">
+            <input class="modal_edit_profile_username_input type="text" name="username" id="username" placeholder="Seu nome">
+            <input class="modal_edit_profile_email_input type="email" name="email" id="email" placeholder="Seu e-mail">
+            <input class="modal_edit_profile_password_input type="password" name="password" id="password" placeholder="Sua senha">
+            <button class="modal_edit_profile_button">Editar Perfil</button>
+        </form>
+    </div>
+    <div class="modal_user_edit">
+        <h2 class="modal_user_edit_title">Editar Usuário</h2>
+        <form class="modal_user_edit_form">
+            <select name="modal_user_edit_select_kind_of_work" id="modal_user_edit_select_kind_of_work">
+                <option value="" selected>Selecionar modalidade de trabalho</option>
+                <option value="home office">Home Office</option>
+                <option value="hibrido">Híbrido</option>
+                <option value="presencial">Presencial</option>
+            </select>
+            <select class="modal_user_edit_select_profissional_level" name="modal_user_edit_select_profissional_level" id="modal_user_edit_select__profissional_level">
+                <option class="modal_user_edit_select_option" value="" selected>Selecionar nível profissional</option>
+                <option class="modal_user_edit_select_option" value="estágio">Estágio</option>
+                <option class="modal_user_edit_select_option" value="júnior">Júnior</option>
+                <option class="modal_user_edit_select_option" value="pleno">Pleno</option>
+                <option class="modal_user_edit_select_option" value="sênior">Senior</option>
+            </select>
+            <button class="modal_user_edit_button" type="submit">Editar</button>
+        </form>
+    </div>
+    <div class="modal_create_department">
+        <h2 class="modal_create_department_title">Criar Departamento</h2>
+        <form class="modal_create_department_form">
+            <input type="text" class="modal_create_department_input_name" placeholder="Nome do departamento">
+            <input type="text" class="modal_create_department_input_description" placeholder="Descrição">
+            <select name="modal_create_department_select_company" id="modal_create_department_select_company">
+                <option value="">Selecionar empresa</option>
+                <option value="Empresa">Empresa</option>
+            </select>
+            <button class="modal_create_department_create_button">Criar o departamento</button>
+        </form>
+    </div>
+    <div class="modal_edit_department">
+        <h2 class="modal_edit_department_title">Editar Departamento</h2>
+        <form class="modal_edit_department_form">
+            <input type="text" class="modal_edit_department_input_name" placeholder="Nome do departamento">
+            <input type="text" class="modal_edit_department_input_description" placeholder="Descrição">
+            <button class="modal_edit_department_save_button">Salvar alterações</button>
+        </form>
+    </div>
+    <div class="modal_remove_user">
+        <h2 class="modal_remove_user_message">Realmente deseja remover o usuário NOME?</h2>
+        <button class="modal_remove_user_button">Deletar</button>
+    </div>
+    <div class="modal_remove_department">
+        <h2 class="modal_remove_department_message">Realmente deseja deletar o departamento NOME e demitir seus funcionários?</h2>
+        <button class="modal_remove_department_button">Confirmar</button>
+    </div>
+    <div class="modal_manage_department">
+        <div class="modal_manage_department_header">
+            <h2 class="modal_manage_department_name">Nome do departamento</h2>
+            <div class="modal_manage_department_information">
+                <h3 class="modal_manage_department_description">Descrição do departamento</h3>
+                <p class="modal_manage_department_company_name">Empresa pertencente</p>
+            </div>
+            <select name="modal_manage_department_hire_user_select" id="modal_manage_department_hire_user_select" class="modal_manage_department_hire_user_select">
+                <option value="">Selecionar usuário</option>
+                <option value="user">Usuário</option>
+            </select>
+        </div>
+        <ul class="modal_manage_department_users_hired">
+            <li class="modal_manage_department_user_hired">
+                <h3 class="modal_manage_department_user_hired_username">Username</h3>
+                <p class="modal_manage_department_user_hired_professional_level">Pleno</p>
+                <p class="modal_manage_department_user_hired_company_name">Company Name</p>
+                <button class="modal_manage_department_user_hired_dismiss_button">Desligar</button>
+            </li>
+        </ul>
+    </div>
     
 </body>
 </html>
