@@ -70,7 +70,6 @@ const login = async (body) => {
 
 const validateUser = async (token) => {
     const tokenToUse = JSON.parse(token);
-    console.log(token);
     try {
         const request = await fetch(`${baseUrl}/auth/validate_user`, {
             method: "GET",
@@ -98,10 +97,119 @@ const validateUser = async (token) => {
     };
 };
 
+const register = async (body) => {
+    try {
+        const request = await fetch(`${baseUrl}/auth/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body),
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            setTimeout(() => {
+                window.location.replace("../../pages/login/index.html");
+            }, 2000);
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+}
+
+const getUserData = async () => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/users/profile`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            const userData = JSON.stringify(response);
+            localStorage.setItem("userLogged", userData);
+
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+}
+
+const getAllDepartmentsofOneCompany = async (id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const getAllUsers = async () => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/users`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+}
+
+const getAllDepartments = async () => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
 
 
-
-
-
-
-export { getAllCompanies, getAllSectors, filterCompanies, login, validateUser };
+export { getAllCompanies, getAllSectors, filterCompanies, login, validateUser, register, getUserData, getAllDepartmentsofOneCompany, getAllUsers, getAllDepartments };
