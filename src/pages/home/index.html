@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="./index.css">
+    <script defer type="module" src="./index.js"></script>
+    <link rel="shortcut icon" href="../../assets/kenzie_empresas_ico.svg" type="image/x-icon">
     <title>Kenzie Empresas - Home</title>
 </head>
 <body>
@@ -29,22 +33,19 @@
                 <img src="#" alt="#">
             </div>
             <div class="select-companies-list">
-                <select name="sector-select" id="">
-                    <option value="" selected>Selecionar Setor</option>
-                    <option value="varejo">Setor</option>
+                <select class="sector-select" name="sector-select" id="">
+                    <option value="all" selected>Selecionar Setor</option>
+                    <option value="all">Todos</option>
                 </select>
                 <ul class="companies">
-                    <li class="company">
-                        <h2 class="company-name">Company Name</h2>
-                        <p class="opening-time">10 horas</p>
-                        <button class="btn-sector">Setor</button>
-                    </li>
                 </ul>
             </div>
         </div>
     </main>
     <div class="modal-background_small">
-        <div class="modal-container_small"></div>
+        <div class="modal-container_small">
+            <button class="modal_close">X</button>
+        </div>
     </div>
     <div class="modal-background">
         <div class="modal-container"></div>
@@ -92,8 +93,7 @@
     <div class="modal_edit_department">
         <h2 class="modal_edit_department_title">Editar Departamento</h2>
         <form class="modal_edit_department_form">
-            <input type="text" class="modal_edit_department_input_name" placeholder="Nome do departamento">
-            <input type="text" class="modal_edit_department_input_description" placeholder="Descrição">
+            <input type="text" class="modal_edit_department_input_description" placeholder="Valores anteriores da descrição">
             <button class="modal_edit_department_save_button">Salvar alterações</button>
         </form>
     </div>
@@ -112,10 +112,13 @@
                 <h3 class="modal_manage_department_description">Descrição do departamento</h3>
                 <p class="modal_manage_department_company_name">Empresa pertencente</p>
             </div>
-            <select name="modal_manage_department_hire_user_select" id="modal_manage_department_hire_user_select" class="modal_manage_department_hire_user_select">
-                <option value="">Selecionar usuário</option>
-                <option value="user">Usuário</option>
-            </select>
+            <form class="modal_manage_department_hire_user_form">
+                <select name="modal_manage_department_hire_user_select" id="modal_manage_department_hire_user_select" class="modal_manage_department_hire_user_select">
+                    <option value="">Selecionar usuário</option>
+                    <option value="user">Usuário</option>
+                </select>
+                <button class="modal_manage_department_hire_user_hire_button">Contratar</button>
+            </form>
         </div>
         <ul class="modal_manage_department_users_hired">
             <li class="modal_manage_department_user_hired">
@@ -125,6 +128,9 @@
                 <button class="modal_manage_department_user_hired_dismiss_button">Desligar</button>
             </li>
         </ul>
+    </div>
+    <div class="toastfy">
+        <p class="toast_text">Criação de usuário bem sucedida</p>
     </div>
     
 </body>
