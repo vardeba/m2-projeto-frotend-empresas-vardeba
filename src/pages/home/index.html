@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
+    
     <link rel="stylesheet" href="./index.css">
     <script defer type="module" src="./index.js"></script>
     <link rel="shortcut icon" href="../../assets/kenzie_empresas_ico.svg" type="image/x-icon">
@@ -12,28 +15,31 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="header-container container">
             <div class="logo-title">
-                <div class="logo">o</div>
-                <h1 class="title">kenzie Empresas</h1>
+                <div class="logo"></div>
+                <h1 class="title">Kenzie Empresas</h1>
             </div>
-            <div class="buttons-home">
-                <a href="../login/index.html">
-                    <button class="btn-login">Login</button>
-                </a>
-                <a href="../register/index.html">
-                    <button class="btn-register">Cadastro</button>
-                </a>
+            <div class="buttons-header">
+                <button id="hamburger" class="show_hamburger show_button">ooo</button>
+                <div class="btns_header_containner hide_menu">
+                    <a href="../login/index.html">
+                        <button class="btn-login">Login</button>
+                    </a>
+                    <a href="../register/index.html">
+                        <button class="btn-register">Cadastro</button>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
     <main>
-        <div class="main-conteiner">
+        <div class="main-container container">
             <div class="img-home">
-                <img src="#" alt="#">
+                <img src="../../assets/background_image.png" alt="Kenzie Empresas">
             </div>
             <div class="select-companies-list">
-                <select class="sector-select" name="sector-select" id="">
+                <select class="sector-select" name="sector-select">
                     <option value="all" selected>Selecionar Setor</option>
                     <option value="all">Todos</option>
                 </select>
@@ -42,9 +48,6 @@
             </div>
         </div>
     </main>
-    <div class="toast">
-        <p class="toast_text">Criação de usuário bem sucedida</p>
-    </div>
     
 </body>
 </html>

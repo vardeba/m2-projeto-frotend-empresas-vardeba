@@ -1,0 +1,78 @@
+.btn-login {
+    width: var(--button-header-width);
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--brand-1);
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: var(--gray2);
+}
+
+.btn-register {
+    width: var(--button-header-width);
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+
+}
+
+.btn-register:hover {
+    background-color: var(--brand-2);
+}
+
+#hamburger {
+    border: none;
+    background-color: transparent;
+    color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide_hamburger {
+    background-image: url(../assets/close_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.show_hamburger {
+    background-image: url(../assets/hamburger_menu_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.hide_button {
+    visibility: hidden;
+}
+
+.show_button {
+    visibility: visible;
+}

@@ -1,28 +1,85 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
 }
 
+:root {
+  --size-1: 3rem;                 /* 48 */
+  --size-2: 2.75rem;              /* 44 */
+  --size-3: 2.5rem;               /* 40 */
+  --size-4: 2.25rem;              /* 36 */
+  --size-5: 2rem;                 /* 32 */
+  --size-6: 1.75rem;              /* 28 */
+  --size-7: 1.5rem;               /* 24 */
+  --size-8: 1.25rem;              /* 20 */
+  --size-9: 1rem;                 /* 16 */
+  --size-10: 0.75rem;             /* 12 */
+  --size-11: 0.5rem;              /* 08 */
+  --size-12: 0.25rem;             /* 04 */
+  --size-13: 0.125rem;            /* 02 */
+  --size-14: 0.0625rem;           /* 01 */
 
+  --brand-1: #4200FF;
+  --brand-2: #6e39ff;
+  --brand50: #4200FF50;
+  --black: #000000;
+  --black50: #00000050;
+  --black30: #00000030;
+  --black20: #00000020;
+  --black10: #00000010;
+  --gray1: #ABABAB;
+  --gray2: #F8F8F8;
+  --white95: #FFFFFF95;
+  --white: #FFFFFF;
+  --alert: #CE4646;
+  --sucess: #4BA036;
 
+  --text-1: 2.5rem;               /* 40 */
+  --text-2: 2.25rem;              /* 36 */
+  --text-3: 2rem;                 /* 32 */
+  --text-4: 1.75rem;              /* 28 */
+  --text-5: 1.875rem;             /* 30 */
+  --text-6: 1.375rem;             /* 22 */
+  --text-7: 1.25rem;              /* 20 */
+  --text-8:  1.125rem;            /* 18 */
+  --text-9:  1rem;                /* 16 */
+  --text-10:  0.9375rem;          /* 15 */
+  --text-11:  0.875rem;           /* 14 */
+  --line-height: 150%;
 
+  --font-weight-1: 700;
+  --font-weight-2: 600;
+  --font-weight-3: 500;
+  --font-weight-4: 400;
 
+  --radius: 0.25rem;
 
+  --button-header-width: 8.875rem;      /* 142 */
+  --button-height-1: 2.5625rem;         /* 41 */
+  --button-height-2: 3rem;              /* 48 */
 
+  --input-height: 3.25rem;              /* 52 */
 
+  --padding-btn-sector: 0 1.625rem;     /* 26 */
+  --padding-btn-sector-mobile: 0 1rem;     /* 26 */
 
+}
 
+body {
+  font-family: var(--font-family-ibm);
+}
 
-
-
-
-
-
+.container {
+    width: 20rem;
+    margin: 0 auto;
+}
 
 
 
