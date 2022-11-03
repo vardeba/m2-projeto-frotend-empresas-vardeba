@@ -211,5 +211,228 @@ const getAllDepartments = async () => {
     };
 };
 
+const getAllCoworkers = async () => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/users/departments/coworkers`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
 
-export { getAllCompanies, getAllSectors, filterCompanies, login, validateUser, register, getUserData, getAllDepartmentsofOneCompany, getAllUsers, getAllDepartments };
+const updateUser = async (body) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/users`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+            body: JSON.stringify(body),
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const usersOutOfWork = async () => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/admin/out_of_work`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const updateUserInAdminDashboard = async (body, id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/admin/update_user/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+            body: JSON.stringify(body),
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const userDelete = async (id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/admin/delete_user/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const createDepartment = async (id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const hireUser = async (body) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments/hire/`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+            body: JSON.stringify(body),
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const dismissUser = async (id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments/dismiss/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const editDepartment = async (body, id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+            body: JSON.stringify(body),
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+const deleteDepartment = async (id) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/departments/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            return response;
+        };
+    }catch(err){
+        console.log(err);
+    };
+};
+
+export { getAllCompanies, getAllSectors, filterCompanies, login, validateUser, register, getUserData, getAllDepartmentsofOneCompany, getAllUsers, getAllDepartments, getAllCoworkers, updateUser, usersOutOfWork, updateUserInAdminDashboard, userDelete, createDepartment, hireUser, dismissUser, editDepartment, deleteDepartment };

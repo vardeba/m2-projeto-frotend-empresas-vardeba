@@ -152,6 +152,30 @@ const createUserInAdminDashboard = async (user) => {
     return li;
 };
 
+const userToAdminDashboard = async (user, company) => {
+    const li = document.createElement('li');
+    li.classList.add('modal_manage_department_user_hired');
+
+    const h3ManageDepartmentUserHiredUsername = document.createElement('h3');
+    h3ManageDepartmentUserHiredUsername.classList.add('modal_manage_department_user_hired_username');
+    h3ManageDepartmentUserHiredUsername.innerText = `${user.username}`;
+
+    const pManageDepartmentUserHiredLevel = document.createElement('p');
+    pManageDepartmentUserHiredLevel.classList.add('modal_manage_department_user_hired_professional_level');
+    pManageDepartmentUserHiredLevel.innerText = `${user.profissional_level}`;
+
+    const pManageDepartmentUserHiredCompanyName = document.createElement('p');
+    pManageDepartmentUserHiredCompanyName.classList.add('modal_manage_department_user_hired_company_name');
+    pManageDepartmentUserHiredCompanyName.innerText = `${company}`;
+
+    const buttonManageDepartmentDismissUser = document.createElement('button');
+    buttonManageDepartmentDismissUser.classList.add('modal_manage_department_user_hired_dismiss_button');
+    buttonManageDepartmentDismissUser.innerText = "Desligar";
+
+    li.append(h3ManageDepartmentUserHiredUsername, pManageDepartmentUserHiredLevel, pManageDepartmentUserHiredCompanyName, buttonManageDepartmentDismissUser);
+
+    return li;
+};
 
 
 
@@ -159,5 +183,4 @@ const createUserInAdminDashboard = async (user) => {
 
 
 
-
-export { createCompanyToRender, createSectorToRender, userInSession, createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard };
+export { createCompanyToRender, createSectorToRender, userInSession, createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard, userToAdminDashboard };
