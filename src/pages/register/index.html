@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
     <link rel="stylesheet" href="./index.css">
     <script defer type="module" src="./index.js"></script>
     <link rel="shortcut icon" href="../../assets/kenzie_empresas_ico.svg" type="image/x-icon">
@@ -12,18 +14,21 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="header-container container">
             <div class="logo-title">
-                <div class="logo">o</div>
-                <h1 class="title">kenzie Empresas</h1>
+                <div class="logo"></div>
+                <h1 class="title">Kenzie Empresas</h1>
             </div>
-            <div class="buttons-home">
-                <a href="../home/index.html">
-                    <button class="btn-home">Home</button>
-                </a>
-                <a href="../login/index.html">
-                    <button class="btn-login">Login</button>
-                </a>
+            <div class="buttons-header">
+                <button id="hamburger" class="show_hamburger show_button">ooo</button>
+                <div class="btns_header_containner hide_menu">
+                    <a href="../home/index.html">
+                        <button class="btn-home btn_header_left">Home</button>
+                    </a>
+                    <a href="../login/index.html">
+                        <button class="btn-login btn_header_right">Login</button>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -41,10 +46,10 @@
                     <option value="pleno">Pleno</option>
                     <option value="sênior">Sênior</option>
                 </select>
-                <button class="btn-register">Cadastre-se</button>
+                <button class="btn_register_register">Cadastre-se</button>
             </form>
             <a href="../login/index.html">
-                <button class="btn-login">Login</button>
+                <button class="btn_login_register">Retornar</button>
             </a>
 
         </div>

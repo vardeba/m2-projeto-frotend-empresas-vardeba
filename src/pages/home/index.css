@@ -1,4 +1,144 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+}
 
+.img-home {
+    width: 34.375rem;
+    height: 46.4375rem;
+    overflow-x: hidden;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-companies-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.sector-select {
+    height: var(--input-height);
+    border: none;
+    border-radius: 0;
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    color: var(--white);
+    text-align: center;
+    cursor: pointer;
+}
+
+.sector-select option {
+    height: var(--input-height);
+    border: none;
+    border-radius: 0;
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    color: var(--white);
+    text-align: center;
+}
+
+.companies {
+    height: 17.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 1rem;
+    overflow: scroll;
+    background-color: var(--gray2);
+}
+
+.companies {
+    scrollbar-color: transparent transparent;
+}
+
+.companies::-webkit-scrollbar {
+    height: 0;
+}
+
+.company {
+    width: 15.0625rem;
+    min-width: 15.0625rem;
+    height: 13.1875rem;
+    background-color: var(--white);
+    padding: 0.8125rem 1rem;
+}
+
+.company-name {
+    font-size: var(--text-7);
+    font-weight: var(--font-weight-1);
+    margin-bottom: 4.625rem;
+}
+
+.opening-hours {
+    font-size: var(--text-9);
+    font-weight: var(--font-weight-4);
+    margin-bottom: 1rem;
+}
+
+.btn-sector {
+    height: 2rem;
+    border: 0.0625rem solid var(--brand-1);
+    border-radius: 2rem;
+    background-color: var(--white);
+    font-size: var(--text-9);
+    font-weight: var(--font-weight-4);
+    color: var(--brand-1);
+    padding: var(--padding-btn-sector-mobile);
+}
+
+.display_none {
+    display: none;
+}
+
+.display_flex {
+    display: flex;
+}
+
+
+@media(min-width: 72.49rem){
+    .container {
+        width: 72.5rem;
+    }
+    .img-home {
+        display: flex;
+    }
+    .img-home img {
+        height: 100%;
+    }
+    .main-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2.6875rem;
+    }
+    .select-companies-list {
+        width: 34.375rem;
+        height: 46.4375rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .companies {
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+    .company {
+        width: 30.5625rem;
+        min-width: 30.5625rem;
+        height: 8.4375rem;
+        padding: 0.8125rem 1.5625rem;
+    }
+    .company-name {
+        margin-bottom: 0.875rem;
+    }
+    .opening-hours {
+        margin-bottom: 0.75rem;
+    }
+}
 
 
 

@@ -39,7 +39,9 @@
   --white95: #FFFFFF95;
   --white: #FFFFFF;
   --alert: #CE4646;
+  --alert-2: #CE4646;
   --sucess: #4BA036;
+  --sucess-2: #55be3b;
 
   --text-1: 2.5rem;               /* 40 */
   --text-2: 2.25rem;              /* 36 */
@@ -68,7 +70,7 @@
   --input-height: 3.25rem;              /* 52 */
 
   --padding-btn-sector: 0 1.625rem;     /* 26 */
-  --padding-btn-sector-mobile: 0 1rem;     /* 26 */
+  --padding-btn-sector-mobile: 0 1rem;  /* 16 */
 
 }
 

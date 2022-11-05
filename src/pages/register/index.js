@@ -1,5 +1,9 @@
 import { register } from "../../scripts/requests.js";
 
+import { hamburgerMenu } from "../../scripts/hamburger.js";
+
+
+
 const eventRegister = async () => {
     const form = document.querySelector('form');
     const elements = [...form.elements];
@@ -16,6 +20,8 @@ const eventRegister = async () => {
     });
 
 }
+
+await hamburgerMenu();
 
 eventRegister();
 

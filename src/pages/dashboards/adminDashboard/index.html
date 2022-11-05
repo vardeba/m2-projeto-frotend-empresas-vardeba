@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../styles/globalStyles.css">
+    <link rel="stylesheet" href="../../../styles/header.css">
+    <link rel="stylesheet" href="../../../styles/buttons.css">
+    <link rel="stylesheet" href="../../../styles/modal.css">
     <link rel="stylesheet" href="./index.css">
     <script defer type="module" src="./index.js"></script>
     <link rel="shortcut icon" href="../../../assets/kenzie_empresas_ico.svg" type="image/x-icon">
@@ -12,37 +15,36 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="header-container container">
             <div class="logo-title">
-                <div class="logo">o</div>
-                <h1 class="title">kenzie Empresas</h1>
+                <div class="logo"></div>
+                <h1 class="title">Kenzie Empresas</h1>
             </div>
-            <button class="btn-logout">Logout</button>
+            <button class="btn-logout btn_header_left">Logout</button>
         </div>
     </header>
-    <main>
-        <div class="main-conteiner">
+    <main class="container">
+        <div class="main-container">
             <section class="admin-area">
                 <div class="admin-departments">
                     <div class="admin-department-manage">
                         <h2 class="admin-department-name">Departamentos</h2>
-                        <select class="company-select" name="company-select" id="company-select">
+                        <select class="company-select" name="company-select" id="uuid">
                             <option value="">Selecionar Empresa</option>
-                            <option value="id_empresa">Empresa</option>
                         </select>
-                        <button class="btn-create-department"> + Criar</button>
+                        <button class="btn_create_department">Criar</button>
                     </div>
                     <ul class="departments">
-                        <li class="department">
+                        <!-- <li class="department">
                             <h3 class="department-name">Department Name</h3>
                             <p class="department-description">Department Description</p>
                             <p class="company-name">Company Name</p>
                             <div class="department-manage-buttons">
-                                <button class="eye">olho</button>
-                                <button class="pencil">lápis</button>
-                                <button class="trash">lixo</button>
+                                <button class="eye"></button>
+                                <button class="pencil"></button>
+                                <button class="trash"></button>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="admin-users">

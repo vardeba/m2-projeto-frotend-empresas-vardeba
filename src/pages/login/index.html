@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
     <link rel="stylesheet" href="./index.css">
     <script defer type="module" src="./index.js"></script>
     <link rel="shortcut icon" href="../../assets/kenzie_empresas_ico.svg" type="image/x-icon">
@@ -12,18 +14,21 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="header-container container">
             <div class="logo-title">
-                <div class="logo">o</div>
-                <h1 class="title">kenzie Empresas</h1>
+                <div class="logo"></div>
+                <h1 class="title">Kenzie Empresas</h1>
             </div>
-            <div class="buttons-login">
-                <a href="../home/index.html">
-                    <button class="btn-home">Home</button>
-                </a>
-                <a href="../register/index.html">
-                    <button class="btn-register">Cadastro</button>
-                </a>
+            <div class="buttons-header">
+                <button id="hamburger" class="show_hamburger show_button">ooo</button>
+                <div class="btns_header_containner hide_menu">
+                    <a href="../home/index.html">
+                        <button class="btn-home btn_header_left">Home</button>
+                    </a>
+                    <a href="../register/index.html">
+                        <button class="btn-register btn_header_right">Cadastro</button>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -31,13 +36,15 @@
         <div class="main-container">
             <h1 class="login-title">Login</h1>
             <p class="login-description">Preencha os campos para realizar login</p>
-            <form>
+            <form class="form_login">
                 <input id="email" type="email" class="input-email-login" placeholder="Seu e-mail" required>
                 <input id="password" type="password" class="input-password-login" placeholder="Sua senha" required>
-                <button class="btn-login">Login</button>
+                <button class="btn_login_login">Login</button>
             </form>
             <span class="span-login">ou</span>
-            <a href="../register/index.html">Cadastre-se</a>
+            <a href="../register/index.html">
+                <button class="btn_register_login">Cadastre-se</button>
+            </a>
         </div>
     </main>
 

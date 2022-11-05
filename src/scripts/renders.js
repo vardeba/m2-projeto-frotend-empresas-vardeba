@@ -1,5 +1,9 @@
 import { getAllDepartments } from "./requests.js";
 
+import { dinamicModal, dinamicModalSmall, dinamicModalBig, editDepartmentModal, removeDepartmentModal, removeUserModal, userEditModal, manageDepartmentModal } from "./modal.js";
+
+import { eventEditDepartment, eventDeleteDepartment, eventEditUser, eventRemoveUser } from "../pages/dashboards/adminDashboard/index.js";
+
 const createCompanyToRender = (company) => {
     const li = document.createElement('li');
     li.classList.add('company');
@@ -96,16 +100,25 @@ const createDepartmentOfCompanySelected = async (department) => {
     div.classList.add('department-manage-buttons');
 
     const eyeButton = document.createElement('button');
-    eyeButton.classList.add('eye');
-    eyeButton.innerText = "olho";
+    eyeButton.classList = 'eye eye_department';
+    eyeButton.addEventListener('click', async (e) => {
+        dinamicModalBig(await manageDepartmentModal(department));
+        //await evenEditDepartment(department.uuid);
+    });
 
     const pencilButtonDept = document.createElement('button');
-    pencilButtonDept.classList.add('pencil');
-    pencilButtonDept.innerText = "lápis";
+    pencilButtonDept.classList = 'pencil pencil_department';
+    pencilButtonDept.addEventListener('click', async (e) => {
+        dinamicModalSmall(await editDepartmentModal(department));
+        await eventEditDepartment(department.uuid);
+    });
 
     const trashButtonDept = document.createElement('button');
-    trashButtonDept.classList.add('trash');
-    trashButtonDept.innerText = "lixo";
+    trashButtonDept.classList = 'trash trash_department';
+    trashButtonDept.addEventListener('click', async (e) => {
+        dinamicModal(await removeDepartmentModal(department));
+        await eventDeleteDepartment(department.uuid);
+    });
 
     div.append(eyeButton, pencilButtonDept, trashButtonDept);
     li.append(h3, pDepartmentDescription, pCompanyName, div);
@@ -139,12 +152,20 @@ const createUserInAdminDashboard = async (user) => {
     div.classList.add('user-manage-buttons');
 
     const pencilButtonUser = document.createElement('button');
-    pencilButtonUser.classList.add('pencil');
-    pencilButtonUser.innerText = "lápis";
+    pencilButtonUser.classList = 'pencil pencil_user';
+    pencilButtonUser.addEventListener('click', async (e) => {
+        dinamicModalSmall(await userEditModal(user));
+        await eventEditUser(user.uuid);
+    });
+
 
     const trashButtonUser = document.createElement('button');
-    trashButtonUser.classList.add('trash');
-    trashButtonUser.innerText = "lixo";
+    trashButtonUser.classList = 'trash trash_user';
+    trashButtonUser.addEventListener('click', async (e) => {
+        dinamicModal(await removeUserModal(user));
+        await eventRemoveUser(user.uuid);
+    });
+
 
     div.append(pencilButtonUser, trashButtonUser);
     li.append(h3, pUserLevel, pCompanyName, div);
@@ -177,10 +198,17 @@ const userToAdminDashboard = async (user, company) => {
     return li;
 };
 
+const createUserToManageDepartmentSelect = async (user) => {
+    const option = document.createElement('option');
+    option.setAttribute('value', `${user.uuid}`);
+    option.innerText = `${user.username}`
+    return option;
+};
 
 
 
 
 
 
-export { createCompanyToRender, createSectorToRender, userInSession, createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard, userToAdminDashboard };
+
+export { createCompanyToRender, createSectorToRender, userInSession, createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard, userToAdminDashboard, createUserToManageDepartmentSelect };

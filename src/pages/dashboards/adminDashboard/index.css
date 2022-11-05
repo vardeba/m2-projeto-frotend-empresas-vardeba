@@ -1,0 +1,205 @@
+.main-container {
+    width: 100%;
+    margin-top: 6.5rem;
+    margin-bottom: 2.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-departments {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-department-manage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.admin-department-name {
+    font-size: var(--text-5);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+}
+
+.company-select {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    padding: 0 2rem;
+    border-radius: 0.75rem;
+    font-size: var(--text-7);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+}
+
+.departments {
+    margin-top: 1.25rem;
+    height: 24.0625rem;
+    background: var(--gray2);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2.125rem 3.5rem;
+    overflow-y: scroll;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.department {
+    width: 30.5625rem;
+    height: 12.25rem;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    border-bottom: 0.0625rem solid var(--brand-1);
+}
+
+.department:hover {
+    border: 0.0625rem solid var(--brand-1);
+}
+
+.department-name {
+    font-size: var(--text-7);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 0.5rem;
+}
+
+.department-description {
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    margin-bottom: 0.5rem;
+}
+
+.company-name {
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    margin-bottom: 1.375rem;
+}
+
+.department-manage-buttons {
+    margin: 0 auto;
+    display: flex;
+    width: 9.125rem;
+    height: 3rem;
+    gap: 1rem;
+}
+
+.admin-users {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.3125rem;
+}
+
+.admin-users-manage {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-users-name {
+    text-align: center;
+    font-size: var(--text-5);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 1rem;
+}
+
+
+.users {
+    height: 24.0625rem;
+    background: var(--gray2);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2.125rem 3.5rem;
+    overflow-y: scroll;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.user {
+    width: 30.5625rem;
+    height: 12.25rem;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    border-bottom: 0.0625rem solid var(--brand-1);
+}
+
+.user:hover {
+    border: 0.0625rem solid var(--brand-1);
+}
+
+.user-name {
+    font-size: var(--text-7);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 0.5rem;
+}
+
+.user-level {
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.company-name {
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    margin-bottom: 1.375rem;
+}
+
+.user-manage-buttons {
+    margin: 0 auto;
+    display: flex;
+    width: 9.125rem;
+    height: 3rem;
+    gap: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.display_none {
+    display: none;
+}
+
+.display_flex {
+    display: flex;
+}
+
+@media(min-width: 72.49rem){
+    .container {
+        width: 73.875rem;
+    }
+}

@@ -233,11 +233,11 @@ const getAllCoworkers = async () => {
     };
 };
 
-const updateUser = async (body) => {
+const updateUser = async (body, user_id) => {
     const token = localStorage.getItem('userToken');
     const tokenToUse = JSON.parse(token);
     try {
-        const request = await fetch(`${baseUrl}/users`, {
+        const request = await fetch(`${baseUrl}/admin/update_user/${user_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -301,11 +301,11 @@ const updateUserInAdminDashboard = async (body, id) => {
     };
 };
 
-const userDelete = async (id) => {
+const userDelete = async (user_id) => {
     const token = localStorage.getItem('userToken');
     const tokenToUse = JSON.parse(token);
     try {
-        const request = await fetch(`${baseUrl}/admin/delete_user/${id}`, {
+        const request = await fetch(`${baseUrl}/admin/delete_user/${user_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -323,7 +323,7 @@ const userDelete = async (id) => {
     };
 };
 
-const createDepartment = async (id) => {
+const createDepartment = async (body) => {
     const token = localStorage.getItem('userToken');
     const tokenToUse = JSON.parse(token);
     try {
@@ -333,6 +333,7 @@ const createDepartment = async (id) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${tokenToUse}`,
             },
+            body: JSON.stringify(body),
         });
         if (request.ok != true){
             throw new Error("Algo deu errado!");

@@ -1,3 +1,8 @@
+import { getAllCompanies, usersOutOfWork } from "./requests.js";
+
+import { createCompanyToAdmimSelect, createUserToManageDepartmentSelect } from "./renders.js";
+
+import { eventHireUser } from "../pages/dashboards/adminDashboard/index.js";
 
 const dinamicModalSmall = async (content) => {
     const body = document.querySelector('body');
@@ -10,7 +15,7 @@ const dinamicModalSmall = async (content) => {
 
     const closeModalButton = document.createElement('button');
     closeModalButton.classList = 'closeModal';
-    closeModalButton.innerText = "X";
+    closeModalButton.innerText = "";
 
     backgroudContainer.addEventListener('click', (event) => {
         const {className} = event.target;
@@ -36,7 +41,32 @@ const dinamicModal = async (content) => {
 
     const closeModalButton = document.createElement('button');
     closeModalButton.classList = 'closeModal';
-    closeModalButton.innerText = "X";
+    closeModalButton.innerText = "";
+
+    backgroudContainer.addEventListener('click', (event) => {
+        const {className} = event.target;
+        if (className === "closeModal" || className === "backgroundModal"){
+            backgroudContainer.remove();
+        }
+    });
+
+    divModalContainer.append(closeModalButton, content);
+    backgroudContainer.appendChild(divModalContainer);
+    body.appendChild(backgroudContainer)
+};
+
+const dinamicModalBig = async (content) => {
+    const body = document.querySelector('body');
+
+    const backgroudContainer = document.createElement('section');
+    backgroudContainer.classList.add('backgroundModal')
+
+    const divModalContainer = document.createElement('div');
+    divModalContainer.classList.add("modalContainerBig");
+
+    const closeModalButton = document.createElement('button');
+    closeModalButton.classList = 'closeModal';
+    closeModalButton.innerText = "";
 
     backgroudContainer.addEventListener('click', (event) => {
         const {className} = event.target;
@@ -98,13 +128,15 @@ const userEditModal = async (user) => {
 
     const h2 = document.createElement('h2');
     h2.classList.add('modal_user_edit_title');
+    h2.innerText = `Editar ${user.username}`;
 
     const form = document.createElement('form');
     form.classList.add('modal_user_edit_form');
 
     const selectKindOfWork = document.createElement('select');
-    selectKindOfWork.setAttribute('name', modal_user_edit_select_kind_of_work);
-    selectKindOfWork.setAttribute('id', modal_user_edit_select_kind_of_work);
+    selectKindOfWork.setAttribute('required', true);
+    selectKindOfWork.setAttribute('name', "modal_user_edit_select_kind_of_work");
+    selectKindOfWork.setAttribute('id', "kind_of_work");
 
     const optionSelectKind = document.createElement('option');
     optionSelectKind.setAttribute('value', "");
@@ -123,8 +155,9 @@ const userEditModal = async (user) => {
     optionPresential.innerText = "Presencial";
 
     const selectProfissionalLevel = document.createElement('select');
-    selectProfissionalLevel.setAttribute('name', modal_user_edit_select_profissional_level);
-    selectProfissionalLevel.setAttribute('id', modal_user_edit_select_profissional_level);
+    selectProfissionalLevel.setAttribute('required', true);
+    selectProfissionalLevel.setAttribute('name', "modal_user_edit_select_profissional_level");
+    selectProfissionalLevel.setAttribute('id', "professional_level");
 
     const optionSelectLevel = document.createElement('option');
     optionSelectLevel.setAttribute('value', "");
@@ -171,20 +204,31 @@ const createDepartmentModal = async () => {
     form.classList.add('modal_create_department_form');
 
     const inputDepartmentName = document.createElement('input');
+    inputDepartmentName.setAttribute('required', true);
     inputDepartmentName.setAttribute('type', "text");
+    inputDepartmentName.setAttribute('id', "name");
     inputDepartmentName.setAttribute('placeholder', "Nome do departamento");
 
     const inputDepartmentDescription = document.createElement('input');
+    inputDepartmentDescription.setAttribute('required', true);
     inputDepartmentDescription.setAttribute('type', "text");
+    inputDepartmentDescription.setAttribute('id', "description");
     inputDepartmentDescription.setAttribute('placeholder', "Descrição");
 
     const select = document.createElement('select');
+    select.setAttribute('required', true);
     select.setAttribute('name', "modal_create_department_select_company");
-    select.setAttribute('id', "modal_create_department_select_company");
+    select.setAttribute('id', "company_uuid");
 
     const optionCompanySelect = document.createElement('option');
-    select.setAttribute('value', "");
-    select.innerText = "Selecionar empresa";
+    optionCompanySelect.setAttribute('value', "");
+    optionCompanySelect.innerText = "Selecionar empresa";
+
+    const allCompanies = await getAllCompanies();
+    allCompanies.forEach(async company => {
+        const companyReady = await createCompanyToAdmimSelect(company);
+        select.append(companyReady);
+    });
 
     const button = document.createElement('button');
     button.classList.add('modal_create_department_create_button');
@@ -209,6 +253,8 @@ const editDepartmentModal = async (department) => {
     form.classList.add('modal_edit_department_form');
 
     const input = document.createElement('input');
+    input.setAttribute('required', true);
+    input.setAttribute('id', "description");
     input.setAttribute('type', "text");
     input.setAttribute('placeholder', `${department.description}`);
 
@@ -282,16 +328,28 @@ const manageDepartmentModal = async (department) => {
     form.classList.add('modal_manage_department_hire_user_form');
 
     const select = document.createElement('select');
+    select.setAttribute('required', true);
     select.setAttribute('name', "modal_manage_department_hire_user_select");
-    select.setAttribute('id', "modal_manage_department_hire_user_select");
+    select.setAttribute('id', "user_uuid");
 
     const option = document.createElement('option');
     option.setAttribute('value', "");
     option.innerText = "Selecionar usuário";
 
+    const allUsersOutOfWork = await usersOutOfWork();
+    allUsersOutOfWork.forEach(async user => {
+        const userReady = await createUserToManageDepartmentSelect(user);
+        select.append(userReady);
+    });
+
+
     const buttonManageDepartmentHireUser = document.createElement('button');
     buttonManageDepartmentHireUser.classList.add('modal_manage_department_hire_user_hire_button');
     buttonManageDepartmentHireUser.innerText = "Contratar";
+    buttonManageDepartmentHireUser.addEventListener('click', async (e) => {
+        await eventHireUser(department.uuid);
+    })
+
 
     const ul = document.createElement('ul');
     ul.classList.add('modal_manage_department_users_hired');
@@ -308,4 +366,4 @@ const manageDepartmentModal = async (department) => {
 
 
 
-export { dinamicModal, dinamicModalSmall, editProfileModal, userEditModal, createDepartmentModal, editDepartmentModal, removeUserModal, removeDepartmentModal, manageDepartmentModal };
+export { dinamicModal, dinamicModalSmall, dinamicModalBig, editProfileModal, userEditModal, createDepartmentModal, editDepartmentModal, removeUserModal, removeDepartmentModal, manageDepartmentModal };

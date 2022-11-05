@@ -1,0 +1,456 @@
+.backgroundModal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modalContainer {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 45.8125rem;
+    padding: 2.5rem;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+}
+
+.modalContainerSmall {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 31.625rem;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+}
+
+.modalContainerBig {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 53.5625rem;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+}
+
+.closeModal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background-color: var(--white);
+    background-image: url("../assets/close_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.modal_create_department {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.modal_create_department_title {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 1.25rem;
+}
+
+.modal_create_department_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_create_department_form input {
+    height: var(--input-height);
+    margin-bottom: 0.8125rem;
+    border: 0.0625rem solid var(--black20);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    color: var(--black50);
+    padding-left: 1.25rem;
+}
+
+.modal_create_department_form select {
+    height: var(--input-height);
+    margin-bottom: 0.8125rem;
+    border: 0.0625rem solid var(--black20);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    color: var(--black50);
+    padding-left: 1.25rem;
+}
+
+.modal_edit_department {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.modal_edit_department_title {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 1.25rem;
+}
+
+.modal_edit_department_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_edit_department_form input {
+    height: var(--input-height);
+    margin-bottom: 0.8125rem;
+    border: 0.0625rem solid var(--black20);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    color: var(--black50);
+    padding-left: 1.25rem;
+}
+
+.modal_remove_department {
+    display: flex;
+    flex-direction: column;
+    padding: 0 7.75rem;
+}
+
+.modal_remove_department_message {
+    text-align: center;
+    font-size: var(--text-4);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 2.375rem;
+}
+
+.modal_user_edit {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.modal_user_edit_title {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 1.25rem;
+}
+
+.modal_user_edit_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_user_edit_form select {
+    height: var(--input-height);
+    margin-bottom: 0.8125rem;
+    border: 0.0625rem solid var(--black20);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    color: var(--black50);
+    padding-left: 1.25rem;
+}
+
+.modal_remove_user {
+    display: flex;
+    flex-direction: column;
+    padding: 0 7.75rem;
+}
+
+.modal_remove_user_message {
+    text-align: center;
+    font-size: var(--text-4);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 2.375rem;
+}
+
+.modal_manage_department {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.modal_manage_department_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.modal_manage_department_name {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    position: absolute;
+    top: -2rem;
+    left: 0;
+}
+
+.modal_manage_department_information {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_manage_department_description {
+    font-size: var(--text-7);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 0.6875;
+}
+
+.modal_manage_department_company_name {
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+}
+
+.modal_manage_department_hire_user_form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.modal_manage_department_hire_user_form select {
+    width: 100%;
+    height: var(--input-height);
+    margin-bottom: 0.8125rem;
+    border: 0.0625rem solid var(--black20);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    color: var(--black50);
+    padding-left: 1.25rem;
+}
+
+.modal_manage_department_users_hired {
+    height: 18.125rem;
+    background-color: var(--gray2);
+    margin-top: 3.1875rem;
+    display: flex;
+    align-items: flex-end;
+    overflow-x: hidden;
+    padding: 2rem 2.5rem;
+    gap: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .edit-post-modal {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .edit-post-modal-title {
+    font-size: var(--title-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 3rem;
+} */
+
+/* .form-post {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .form-edit {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .label-modal-edit {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 0.5rem;
+} */
+
+/* .textarea-post-title {
+    height: 2.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    border: 0.0625rem solid #D9D9D9;
+    background-color: var(--gray800);
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 1rem;
+} */
+
+/* .textarea-post-title:focus {
+    background-color: var(--gray900);
+    border: 0.0625rem solid var(--gra1600);
+} */
+
+/* .textarea-post-content {
+    height: 22.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    border: 0.0625rem solid #D9D9D9;
+    background-color: var(--gray800);
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 2.75rem;
+} */
+
+/* .textarea-post-content:focus {
+    background-color: var(--gray900);
+    border: 0.0625rem solid var(--gra1600);
+} */
+
+/* .edit-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+} */
+
+/* .delete-post-modal {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .delete-post-modal-title {
+    font-size: var(--title-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 3rem;
+} */
+
+/* .delete-post-modal-alert {
+    font-size: var(--title-2);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 1rem;
+} */
+
+/* .delete-post-modal-atention {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray300);
+    margin-bottom: 2.875rem;
+} */
+
+/* .delete-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+} */
+
+/* .div__post__article__p-modal {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray300);
+} */
+
+/* .successModal {
+    width: 27.625rem;
+    padding: 1.3125rem 2rem;
+    background-color: var(--gray900);
+    border-radius: var(--radius);
+} */
+
+/* .headerSuccessModal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+} */
+
+/* .acountCreated {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--sucess100);
+} */
+
+/* .acountNotFound {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--alert100);
+} */
+
+/* .redirectMessage {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray200);
+} */
+
+/* .successModal a {
+    text-decoration: underline;
+} */
+
+/* .deleteSuccessModal {
+    width: 27.625rem;
+    padding: 1.3125rem 2rem;
+    background-color: var(--gray900);
+    border-radius: var(--radius);
+} */
+
+/* .headerDeleteSuccessModal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+} */
+
+/* .deletePostSuccessHeaderMessage {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--sucess100);
+} */
+
+/* .deletePostSuccessMessage {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray200);
+} */
+
+

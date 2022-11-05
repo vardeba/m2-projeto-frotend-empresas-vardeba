@@ -1,4 +1,4 @@
-.btn-login {
+.btn_header_left {
     width: var(--button-header-width);
     height: var(--button-height-2);
     border: 0.0625rem solid var(--brand-1);
@@ -9,11 +9,11 @@
     cursor: pointer;
 }
 
-.btn-login:hover {
+.btn_header_left:hover {
     background-color: var(--gray2);
 }
 
-.btn-register {
+.btn_header_right {
     width: var(--button-header-width);
     height: var(--button-height-2);
     border: 0.0625rem solid var(--brand-1);
@@ -22,10 +22,9 @@
     font-weight: var(--font-weight-1);
     color: var(--white);
     cursor: pointer;
-
 }
 
-.btn-register:hover {
+.btn_header_right:hover {
     background-color: var(--brand-2);
 }
 
@@ -34,6 +33,230 @@
     background-color: transparent;
     color: transparent;
 }
+
+.btn_register_login {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--brand-1);
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.btn_register_login:hover {
+    background-color: var(--gray2);
+}
+
+.btn_login_login {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.btn_login_login:hover {
+    background-color: var(--brand-2);
+}
+
+.btn_login_register {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--brand-1);
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.btn_login_register:hover {
+    background-color: var(--gray2);
+}
+
+.btn_register_register {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+    margin-bottom: 0.625rem;
+}
+
+.btn_register_register:hover {
+    background-color: var(--brand-2);
+}
+
+.btn_create_department {
+    width: var(--button-header-width);
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    background-image: url("../assets/plus_icon.svg");
+    background-repeat: no-repeat;
+    background-position: 1rem;
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.btn_create_department:hover {
+    background-color: var(--brand-2);
+}
+
+.eye {
+    width: 3.5rem;
+    height: 3rem;
+    border: none;
+    background-color: var(--white);
+    background-image: url("../assets/eye_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+    transition: 0.2s ease;
+}
+
+.eye:hover {
+    position: relative;
+    transform: translateY(-0.25rem);
+    transition: 0.2s ease;
+}
+
+.pencil {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: var(--white);
+    background-image: url("../assets/pencil_black_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+    transition: 0.2s ease;
+}
+
+.pencil:hover {
+    position: relative;
+    transform: translateY(-0.25rem);
+    transition: 0.2s ease;
+}
+
+.trash {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: var(--white);
+    background-image: url("../assets/trash_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+    transition: 0.2s ease;
+}
+
+.trash:hover {
+    position: relative;
+    transform: translateY(-0.25rem);
+    transition: 0.2s ease;
+}
+
+.modal_create_department_create_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_create_department_create_button:hover {
+    background-color: var(--brand-2);
+}
+
+.modal_edit_department_save_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_edit_department_save_button:hover {
+    background-color: var(--brand-2);
+}
+
+.modal_remove_department_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--sucess);
+    background-color: var(--sucess);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_remove_department_button:hover {
+    background-color: var(--sucess-2);
+}
+
+.modal_user_edit_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_user_edit_button:hover {
+    background-color: var(--brand-2);
+}
+
+.modal_remove_user_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--sucess);
+    background-color: var(--sucess);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_remove_user_button:hover {
+    background-color: var(--sucess-2);
+}
+
+.modal_manage_department_hire_user_hire_button {
+    width: var(--button-header-width);
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--sucess);
+    background-color: var(--sucess);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_manage_department_hire_user_hire_button:hover {
+    background-color: var(--sucess-2);
+}
+
+
 
 
 

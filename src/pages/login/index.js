@@ -1,4 +1,5 @@
 import { login } from "../../scripts/requests.js";
+import { hamburgerMenu } from "../../scripts/hamburger.js";
 
 const eventLogin = async() => {
     const form = document.querySelector('form');
@@ -14,5 +15,7 @@ const eventLogin = async() => {
         await login(body);
     });
 };
+
+await hamburgerMenu();
 
 await eventLogin();
