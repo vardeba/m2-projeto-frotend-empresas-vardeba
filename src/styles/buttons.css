@@ -256,7 +256,69 @@
     background-color: var(--sucess-2);
 }
 
+.buttonCreateUsersHiredByDepartment {
+    width: var(--button-header-width);
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--alert);
+    background-color: var(--white);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--alert);
+    cursor: pointer;
+    align-self: center;
+}
 
+.buttonCreateUsersHiredByDepartment:hover {
+    background-color: var(--gray2);
+}
+
+.modal_dismiss_user_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--sucess);
+    background-color: var(--sucess);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_dismiss_user_button:hover {
+    background-color: var(--sucess-2);
+}
+
+.user_logged_edit_data {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: var(--white);
+    background-image: url("../assets/pencil_purple_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+    transition: 0.2s ease;
+}
+
+.user_logged_edit_data:hover {
+    position: relative;
+    transform: translateY(-0.25rem);
+    transition: 0.2s ease;
+}
+
+.modal_edit_profile_button {
+    height: var(--button-height-2);
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--brand-1);
+    font-size: var(--text-8);
+    font-weight: var(--font-weight-1);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal_edit_profile_button:hover {
+    background-color: var(--brand-2);
+}
 
 
 

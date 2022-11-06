@@ -15,7 +15,6 @@ const eventRegister = async () => {
                 body[elem.id] = elem.value
             };
         });
-        console.log(body);
         await register(body);
     });
 

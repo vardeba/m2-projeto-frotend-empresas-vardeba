@@ -1,10 +1,10 @@
 import { getAllDepartments } from "./requests.js";
 
-import { dinamicModal, dinamicModalSmall, dinamicModalBig, editDepartmentModal, removeDepartmentModal, removeUserModal, userEditModal, manageDepartmentModal } from "./modal.js";
+import { dinamicModal, dinamicModalSmall, dinamicModalBig, editDepartmentModal, removeDepartmentModal, removeUserModal, userEditModal, manageDepartmentModal, dismissUserModal } from "./modal.js";
 
-import { eventEditDepartment, eventDeleteDepartment, eventEditUser, eventRemoveUser } from "../pages/dashboards/adminDashboard/index.js";
+import { eventEditDepartment, eventDeleteDepartment, eventEditUser, eventRemoveUser, eventDismissUser } from "../pages/dashboards/adminDashboard/index.js";
 
-const createCompanyToRender = (company) => {
+const createCompanyToRender = async (company) => {
     const li = document.createElement('li');
     li.classList.add('company');
 
@@ -25,7 +25,7 @@ const createCompanyToRender = (company) => {
 
 };
 
-const createSectorToRender = (sector) => {
+const createSectorToRender = async (sector) => {
     const option = document.createElement('option');
     option.setAttribute('value', `${sector.description}`);
     option.innerText = `${sector.description}`
@@ -141,11 +141,11 @@ const createUserInAdminDashboard = async (user) => {
     const pCompanyName = document.createElement('p');
     pCompanyName.classList.add('company-name');
     if (user.department_uuid == null){
-        pCompanyName.innerText = ``;
+        pCompanyName.innerText = `Aguardando contratação`;
     }else{
         const allDepts = await getAllDepartments();
         const deptFiltered = allDepts.filter((dept) => dept.uuid == user.department_uuid);
-        pCompanyName.innerText = `${deptFiltered.companies.name}`;
+        pCompanyName.innerText = `${deptFiltered[0].companies.name}`;
     }
 
     const div = document.createElement('div');
@@ -205,10 +205,37 @@ const createUserToManageDepartmentSelect = async (user) => {
     return option;
 };
 
+const createUsersHiredByDepartment = async (user, companyName) => {
+    const div = document.createElement('div');
+    div.classList.add('divCreateUsersHiredByDepartment');
+
+    const h3 = document.createElement('h3');
+    h3.classList.add('h3CreateUsersHiredByDepartment');
+    h3.innerText = `${user.username}`;
+
+    const p = document.createElement('p');
+    p.classList.add('pCreateUsersHiredByDepartment');
+    p.innerText = `${user.professional_level}`;
+
+    const span = document.createElement('span');
+    span.classList.add('spanCreateUsersHiredByDepartment');
+    span.innerText = `${companyName}`;
+    
+    const button = document.createElement('button');
+    button.classList.add('buttonCreateUsersHiredByDepartment');
+    button.innerText = `Desligar`;
+    button.addEventListener("click", async () => {
+        await dinamicModal(await dismissUserModal(user));
+        await eventDismissUser(user);
+    });
+
+    
+    div.append(h3, p, span, button);
+    return div;
+};
 
 
 
 
 
-
-export { createCompanyToRender, createSectorToRender, userInSession, createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard, userToAdminDashboard, createUserToManageDepartmentSelect };
+export { createCompanyToRender, createSectorToRender, userInSession, createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard, userToAdminDashboard, createUserToManageDepartmentSelect, createUsersHiredByDepartment };

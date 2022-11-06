@@ -1,3 +1,7 @@
+import { toast } from "../scripts/toast.js";
+
+import { animationStart, animationStop } from "./spinner.js";
+
 const baseUrl = "http://localhost:6278";
 
 const getAllCompanies = async () => {
@@ -44,6 +48,7 @@ const filterCompanies = async (sector) => {
 
 const login = async (body) => {
     try {
+        animationStart("btn_login_login");
         const request = await fetch(`${baseUrl}/auth/login`, {
             method: "POST",
             headers: {
@@ -60,11 +65,21 @@ const login = async (body) => {
             setTimeout(() => {
                 // window.location.replace("../../pages/home/index.html");
             }, 2000);
-            await validateUser(userToken);
+            const userValidated = await validateUser(userToken);
+            setTimeout(() => {
+                if (userValidated.is_admin){
+                    window.location.replace("../../pages/dashboards/adminDashboard/index.html");
+                }else{
+                    window.location.replace("../../pages/dashboards/userDashboard/index.html");
+                };
+            }, 2000);
             return response;
         };
     }catch(err){
-        console.log(err);
+        await toast("ERRO", "Email ou Senha incorretos")
+        setTimeout(async () => {
+            animationStop("btn_login_login", "Login");
+        }, 3000)
     };
 }
 
@@ -78,18 +93,10 @@ const validateUser = async (token) => {
                 Authorization: `Bearer ${tokenToUse}`,
             },
         });
-        console.log(request);
         if (request.ok != true){
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
-            setTimeout(() => {
-                if (response.is_admin){
-                    window.location.replace("../dashboards/adminDashboard/index.html");
-                }else{
-                    window.location.replace("../dashboards/userDashboard/index.html");
-                };
-            }, 2000);
             return response;
         };
     }catch(err){
@@ -99,6 +106,7 @@ const validateUser = async (token) => {
 
 const register = async (body) => {
     try {
+        animationStart("btn_register_register")
         const request = await fetch(`${baseUrl}/auth/register`, {
             method: "POST",
             headers: {
@@ -110,12 +118,17 @@ const register = async (body) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Usuário criado com sucesso!")
             setTimeout(() => {
                 window.location.replace("../../pages/login/index.html");
             }, 2000);
             return response;
         };
     }catch(err){
+        toast("ERRO", "Verifique os dados informados e tente novamente!")
+        setTimeout(async () => {
+            animationStop("btn_register_register", "Cadastre-se")
+        }, 3000);
         console.log(err);
     };
 }
@@ -249,10 +262,41 @@ const updateUser = async (body, user_id) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Usuário atualizado");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("ERRO", "Verifique os dados e tente novamente!")
+    };
+};
+
+const updateUserProfile = async (body) => {
+    const token = localStorage.getItem('userToken');
+    const tokenToUse = JSON.parse(token);
+    try {
+        const request = await fetch(`${baseUrl}/users/`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenToUse}`,
+            },
+            body: JSON.stringify(body),
+        });
+        if (request.ok != true){
+            throw new Error("Algo deu errado!");
+        }else{
+            const response = await request.json();
+            toast("OK", "Usuário atualizado!")
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000)
+            return response;
+        };
+    }catch(err){
+        toast("ERRO", "Verifique os dados e tente novamente!")
     };
 };
 
@@ -294,6 +338,10 @@ const updateUserInAdminDashboard = async (body, id) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Usuário atualizado com sucesso!")
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
             return response;
         };
     }catch(err){
@@ -316,10 +364,17 @@ const userDelete = async (user_id) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Usuário deletado com sucesso!");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("OK", "Usuário deletado com sucesso!");
+        setTimeout(async () => {
+            window.location.reload();
+        }, 3000);
     };
 };
 
@@ -339,10 +394,14 @@ const createDepartment = async (body) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Departamento criado com sucesso!");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("ERRO", "Verifique os dados e tente novamente!");
     };
 };
 
@@ -362,10 +421,14 @@ const hireUser = async (body) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Usuário contratado com sucesso!");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("ERRO", "Verifique os dados e tente novamente!");
     };
 };
 
@@ -384,10 +447,15 @@ const dismissUser = async (id) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Usuário demitido com sucesso!");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
+
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("ERRO", "Verifique os dados e tente novamente!");
     };
 };
 
@@ -407,10 +475,15 @@ const editDepartment = async (body, id) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Departamento atualizado com sucesso!");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
+
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("ERRO", "Verifique os dados e tente novamente!");
     };
 };
 
@@ -429,11 +502,19 @@ const deleteDepartment = async (id) => {
             throw new Error("Algo deu errado!");
         }else{
             const response = await request.json();
+            toast("OK", "Departamento deletado com sucesso!");
+            setTimeout(async () => {
+                window.location.reload();
+            }, 3000);
+
             return response;
         };
     }catch(err){
-        console.log(err);
+        toast("OK", "Departamento deletado com sucesso!");
+        setTimeout(async () => {
+            window.location.reload();
+        }, 3000);
     };
 };
 
-export { getAllCompanies, getAllSectors, filterCompanies, login, validateUser, register, getUserData, getAllDepartmentsofOneCompany, getAllUsers, getAllDepartments, getAllCoworkers, updateUser, usersOutOfWork, updateUserInAdminDashboard, userDelete, createDepartment, hireUser, dismissUser, editDepartment, deleteDepartment };
+export { getAllCompanies, getAllSectors, filterCompanies, login, validateUser, register, getUserData, getAllDepartmentsofOneCompany, getAllUsers, getAllDepartments, getAllCoworkers, updateUser, usersOutOfWork, updateUserInAdminDashboard, userDelete, createDepartment, hireUser, dismissUser, editDepartment, deleteDepartment, updateUserProfile };

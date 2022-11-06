@@ -1,0 +1,141 @@
+.user_logged {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+
+.user_logged_data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7.5625rem;
+    border: 0.0625rem solid var(--black20);
+    padding: 1.25rem 2rem;
+}
+
+.user_logged_name_data {
+    width: 763px;
+    height: 81px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user_logged_username {
+    font-size: var(--text-5);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    margin-bottom: 0.75rem;
+}
+
+.user_logged_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user_logged_email {
+    font-size: var(--text-6);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+}
+
+.user_logged_level{
+    font-size: var(--text-6);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    text-transform: capitalize;
+}
+
+.user_logged_kind_of_work {
+    font-size: var(--text-6);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    text-transform: capitalize;
+}
+
+.company-data {
+    margin-top: 3.3125rem;
+    height: 29.1875rem;
+    background-color: var(--gray2);
+    border: 0.0625rem solid var(--gray1);
+    display: flex;
+    flex-direction: column;
+}
+
+.no-job {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-no-job {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+}
+
+.company-name-and-department {
+    height: 4.875rem;
+    background-color: var(--brand-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-department {
+    font-size: var(--text-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    color: var(--white);
+    text-transform: capitalize;
+}
+
+.employies {
+    width: 66.375rem;
+    height: 15.875rem;
+    margin: 3.625rem 3.6875rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.8125rem;
+}
+
+.employie {
+    width: 19.875rem;
+    height: 4.75rem;
+    padding: 0.75rem 1.5rem;
+    border: 0.0625rem solid var(--brand-1);
+    background-color: var(--white);
+}
+
+.employie-name {
+    font-size: var(--text-10);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+}
+
+.employie-level {
+    font-size: var(--text-10);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height);
+    text-transform: capitalize;
+}
+
+.display_none {
+    display: none;
+}
+
+.display_flex {
+    display: flex;
+}
+
+@media(min-width: 72.49rem){
+    .container {
+        width: 73.875rem;
+    }
+}

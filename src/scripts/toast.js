@@ -1,6 +1,8 @@
 const toast = async (type, message) => {
+    const body = document.querySelector('body');
+
     const div = document.createElement('div');
-    div.classList.add('toast');
+    div.classList.add('toast_container');
     if (type == "OK"){
         div.classList.add('toast_ok');
     };
@@ -9,12 +11,13 @@ const toast = async (type, message) => {
     };
 
     const p = document.createElement('p');
-    p.classList.add('toast_text');
+    p.classList.add('toast_message');
     p.innerText = `${message}`;
+    
 
     div.appendChild(p);
 
-    return div;
+    body.appendChild(div);
 };
 
 export { toast };

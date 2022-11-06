@@ -1,7 +1,10 @@
-import { getAllCompanies, getAllDepartmentsofOneCompany, getAllUsers, createDepartment, getAllDepartments, editDepartment, deleteDepartment, updateUser, userDelete, hireUser } from "../../../scripts/requests.js";
+import { getAllCompanies, getAllDepartmentsofOneCompany, getAllUsers, createDepartment, getAllDepartments, editDepartment, deleteDepartment, updateUser, userDelete, hireUser, dismissUser } from "../../../scripts/requests.js";
 
 import { createCompanyToAdmimSelect, createDepartmentOfCompanySelected, createUserInAdminDashboard } from "../../../scripts/renders.js";
+
 import { createDepartmentModal, dinamicModal, dinamicModalSmall } from "../../../scripts/modal.js";
+
+import { toast } from "../../../scripts/toast.js";
 
 const renderSelectCompany = async () => {
     const selectCompanyAdminSelect = document.querySelector('.company-select');
@@ -42,7 +45,7 @@ const renderUsersInAdminDashboard = async () => {
     const allUsers = await getAllUsers();
     allUsers.forEach(async user => {
         const userReady = await createUserInAdminDashboard(user);
-        ulUsers.appendChild(userReady);
+        ulUsers.insertAdjacentElement("beforeend", userReady);
     });
 };
 
@@ -108,6 +111,10 @@ const eventEditUser = async (user_id) => {
             };
         });
         await updateUser(body, user_id);
+        setTimeout(async () => {
+            await toast("OK", "Usuário atualizado com sucesso");
+            window.location.reload();
+        }, 3000);
     });
 };
 
@@ -134,5 +141,25 @@ const eventHireUser = async (dept_id) => {
         await hireUser(body);
     });
 };
+const eventDismissUser = async (user) => {
+    const dismissUserButton = document.querySelector('.modal_dismiss_user_button');
+    dismissUserButton.addEventListener('click', async () => {
+        await dismissUser(user.uuid);
+    });
+};
 
-export { eventEditDepartment, eventDeleteDepartment, eventEditUser, eventRemoveUser, eventHireUser };
+const logout = async () => {
+    const logoutButton = document.querySelector('.btn-logout')
+    logoutButton.addEventListener('click', async () => {
+        localStorage.clear();
+        toast("OK", "Logout realizado!");
+        setTimeout(() => {
+            window.location.replace('../../../pages/login/');
+        }, 3000);
+        
+    });
+};
+
+await logout();
+
+export { eventEditDepartment, eventDeleteDepartment, eventEditUser, eventRemoveUser, eventHireUser, eventDismissUser };

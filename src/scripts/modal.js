@@ -1,6 +1,6 @@
-import { getAllCompanies, usersOutOfWork } from "./requests.js";
+import { getAllCompanies, usersOutOfWork, getAllUsers } from "./requests.js";
 
-import { createCompanyToAdmimSelect, createUserToManageDepartmentSelect } from "./renders.js";
+import { createCompanyToAdmimSelect, createUserToManageDepartmentSelect, createUsersHiredByDepartment } from "./renders.js";
 
 import { eventHireUser } from "../pages/dashboards/adminDashboard/index.js";
 
@@ -115,6 +115,7 @@ const editProfileModal = async (user) => {
     const button = document.createElement('button');
     button.classList.add('modal_edit_profile_button');
     button.innerText = "Editar Perfil";
+    
 
     form.append(inputUsername, inputEmail, inputPassword, button);
     div.append(h2, form);
@@ -333,13 +334,14 @@ const manageDepartmentModal = async (department) => {
     select.setAttribute('id', "user_uuid");
 
     const option = document.createElement('option');
+    option.setAttribute('selected', true);
     option.setAttribute('value', "");
     option.innerText = "Selecionar usuário";
 
     const allUsersOutOfWork = await usersOutOfWork();
     allUsersOutOfWork.forEach(async user => {
         const userReady = await createUserToManageDepartmentSelect(user);
-        select.append(userReady);
+        select.insertAdjacentElement("beforeend", userReady);
     });
 
 
@@ -354,6 +356,20 @@ const manageDepartmentModal = async (department) => {
     const ul = document.createElement('ul');
     ul.classList.add('modal_manage_department_users_hired');
 
+    const h1 = document.createElement('h1');
+    h1.innerText = "Nenhum funcionário contratado no departamento!";
+
+    const allUsers = await getAllUsers();
+    const usersFromDepartment = allUsers.filter((user) => user.department_uuid == department.uuid);
+    if (usersFromDepartment.length< 1){
+        ul.appendChild(h1);
+    }else{
+        usersFromDepartment.forEach(async user => {
+            const userReady = await createUsersHiredByDepartment(user, department.companies.name);
+            ul.appendChild(userReady);
+        });
+    };
+
     select.appendChild(option);
     form.append(select, buttonManageDepartmentHireUser);
     divManageDepartmentInformation.append(h3ManageDepartmentDescription, pManageDepartmentCompanyName);
@@ -363,7 +379,25 @@ const manageDepartmentModal = async (department) => {
     return div;
 };
 
+const dismissUserModal = async (user) => {
+    const div = document.createElement('div');
+    div.classList.add('modal_dismiss_user');
+
+    const h2 = document.createElement('h2');
+    h2.classList.add('modal_dismiss_user_message');
+    h2.innerText = `Realmente deseja demitir o usuário ${user.username}?`;
+
+    const button = document.createElement('button');
+    button.classList.add('modal_dismiss_user_button');
+    button.innerText = "Demitir";
+
+    div.append(h2, button);
+
+    return div;
+};
 
 
 
-export { dinamicModal, dinamicModalSmall, dinamicModalBig, editProfileModal, userEditModal, createDepartmentModal, editDepartmentModal, removeUserModal, removeDepartmentModal, manageDepartmentModal };
+
+
+export { dinamicModal, dinamicModalSmall, dinamicModalBig, editProfileModal, userEditModal, createDepartmentModal, editDepartmentModal, removeUserModal, removeDepartmentModal, manageDepartmentModal, dismissUserModal };

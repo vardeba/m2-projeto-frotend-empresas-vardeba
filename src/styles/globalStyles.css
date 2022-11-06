@@ -36,7 +36,7 @@
   --black10: #00000010;
   --gray1: #ABABAB;
   --gray2: #F8F8F8;
-  --white95: #FFFFFF95;
+  --white95: #FFFFFFE5;
   --white: #FFFFFF;
   --alert: #CE4646;
   --alert-2: #CE4646;
@@ -72,10 +72,6 @@
   --padding-btn-sector: 0 1.625rem;     /* 26 */
   --padding-btn-sector-mobile: 0 1rem;  /* 16 */
 
-}
-
-body {
-  font-family: var(--font-family-ibm);
 }
 
 .container {
