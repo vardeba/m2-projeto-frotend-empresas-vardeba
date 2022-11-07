@@ -79,7 +79,7 @@ const renderUserData = async () => {
     sectionUserLogged.appendChild(userLoggedDashboard);
 };
 
-await renderUserData();
+// await renderUserData();
 
 const dinamicModalSmall = async (content) => {
     const body = document.querySelector('body');
@@ -211,5 +211,7 @@ const logout = async () => {
         
     });
 };
+
+await renderUserData();
 
 await logout();
