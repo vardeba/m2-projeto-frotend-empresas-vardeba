@@ -26,7 +26,12 @@ const userLogged = async (user) => {
 
     const pUserLoggedLevel = document.createElement('p');
     pUserLoggedLevel.classList.add('user_logged_level');
-    pUserLoggedLevel.innerText = `${user.professional_level}`;
+    if (user.professional_level == null){
+        pUserLoggedLevel.innerText = ``;
+    }else{
+        pUserLoggedLevel.innerText = `${user.professional_level}`;
+    };
+    
 
     const pUserLoggedKindOfWork = document.createElement('p');
     pUserLoggedKindOfWork.classList.add('user_logged_kind_of_work');

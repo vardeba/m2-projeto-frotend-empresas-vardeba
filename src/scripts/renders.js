@@ -136,7 +136,11 @@ const createUserInAdminDashboard = async (user) => {
 
     const pUserLevel = document.createElement('p');
     pUserLevel.classList.add('user-level');
-    pUserLevel.innerText = `${user.professional_level}`;
+    if (user.professional_level == null){
+        pUserLevel.innerText = ``;
+    }else{
+        pUserLevel.innerText = `${user.professional_level}`;
+    };
 
     const pCompanyName = document.createElement('p');
     pCompanyName.classList.add('company-name');

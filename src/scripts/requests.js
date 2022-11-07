@@ -62,9 +62,6 @@ const login = async (body) => {
             const response = await request.json();
             const userToken = JSON.stringify(response.token);
             localStorage.setItem("userToken", userToken);
-            setTimeout(() => {
-                // window.location.replace("../../pages/home/index.html");
-            }, 2000);
             const userValidated = await validateUser(userToken);
             setTimeout(() => {
                 if (userValidated.is_admin){

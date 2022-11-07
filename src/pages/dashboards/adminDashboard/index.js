@@ -43,7 +43,8 @@ const renderUsersInAdminDashboard = async () => {
     const ulUsers = document.querySelector('.users');
     ulUsers.innerHTML = "";
     const allUsers = await getAllUsers();
-    allUsers.forEach(async user => {
+    const filteredUsers = allUsers.filter((user) => user.username != "ADMIN");
+    filteredUsers.forEach(async user => {
         const userReady = await createUserInAdminDashboard(user);
         ulUsers.insertAdjacentElement("beforeend", userReady);
     });
